@@ -1,7 +1,7 @@
 #define CATCH_CONFIG_MAIN
 
-#include "libs/catch.hpp"
-#include "PrimeChecker.hpp"
+#include "catch.hpp"
+#include "../PrimeChecker.hpp"
 
 TEST_CASE("Test PrimeChecker 1.") {
   PrimeChecker pc;
