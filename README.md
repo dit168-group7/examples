@@ -29,3 +29,13 @@ examples-receiver will now listen for messages sent by examples-sender. Go to th
 There you go! Now look at the code!
 
 ```messages.odvd``` contains the specification, start there. Then look at ```sender.cpp``` and ```receiver.cpp``` to see the implementation behind sending and receiving the protocol message in ```messages.odvd```
+
+# Multicast tutorial
+
+To test out how multicasting will be used in this project, go into examples/sender-receiver-multicast and perform the same build operations as above (make build dir cmake... etc).
+
+To see the multicast messages in action, open at *least* three terminal windows.
+
+Start the ```./examples-multicast-receiver``` in at least two terminal windows. This will simulate two different cars connecting to the same message relay. The project cars will be listening on the same address, specified by the V2V protocol, where messages will be sent and all cars listening will get them.
+
+Start ```./examples-multicast-sender``` which works just like the previous tutorial and enter a number to send. Once you've pressed enter, go to the other terminal windows and check the output, there should now be messages in all windows you opened saying: "Received multicast message: <the number you entered>".
