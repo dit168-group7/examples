@@ -8,7 +8,7 @@ To test sending and receiving protocol messages, do the following:
 
 1. Install dependencies, run the script ```install_dependencies```
 
-2. Go into the prime_checker directory (name unimportant for now)
+2. Go into the sender-receiver directory
 
 3. Create a build directory if it is your first time or if it somehow got deleted
 
