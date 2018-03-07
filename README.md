@@ -29,3 +29,21 @@ examples-receiver will now listen for messages sent by examples-sender. Go to th
 There you go! Now look at the code!
 
 ```messages.odvd``` contains the specification, start there. Then look at ```sender.cpp``` and ```receiver.cpp``` to see the implementation behind sending and receiving the protocol message in ```messages.odvd```
+
+# Signal viewer tutorial
+
+Clone the signal viewer repository
+
+```git clone https://github.com/chrberger/dit168-signal-viewer```
+
+Copy our own messages.odvd file into the newly cloned directory, remove the existing one. Make sure the messages.odvd file you copy in has the specification for the messages you want to send over the network, the messages that signal viewer should show you that is.
+
+While in the root of the dit168-signal-viewer directory, build a docker image
+
+```docker build -t chrberger/dit168-signal-viewer -f Dockerfile .```
+
+Now, run the built image with the help script ```run_signal_viewer``` that is located in the root of the examples repository
+
+Open a browser and navigate to localhost:8080. Port 8080 is where signal viewer is running.
+
+Run receiver and sender and start sending messages to see the results in the web page.
