@@ -1,14 +1,15 @@
 #include <chrono>
 #include <iostream>
+#include <cstdint>
 
-#include "cluon/UDPSender.hpp"
-#include "cluon/ToProtoVisitor.hpp"
-
+#include "cluon/OD4Session.hpp"
+#include "cluon/Envelope.hpp"
 #include "messages.hpp"
 
 
 int main(int /*argc*/, char** /*argv*/) {
-    cluon::UDPSender sender{"127.0.0.1", 8000};
+    cluon::OD4Session *sender = new cluon::OD4Session(111, 
+        [](cluon::data::Envelope /*&&envelope*/) noexcept {});
     
     uint16_t value;
     
@@ -24,14 +25,8 @@ int main(int /*argc*/, char** /*argv*/) {
         // Assign input value
         Handshake msg;
         msg.identity(value);
-        
-        // Encode input
-        cluon::ToProtoVisitor encoder;
-        msg.accept(encoder);
-        
-        // String pack the data
-        std::string data{encoder.encodedData()};
-        sender.send(std::move(data));
+     
+        sender->send(msg);
     }
     
     return 0;
